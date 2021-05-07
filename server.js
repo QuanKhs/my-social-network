@@ -10,9 +10,11 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
-app.get('/', (req, res) => {
-    res.json({ msg: 'Hello' })
-});
+// Routes
+app.use('/api', require('./routes/authRouter'));
+
+
+
 
 //connect MongoDB atlas
 const URI = process.env.MONGODB_URL;
