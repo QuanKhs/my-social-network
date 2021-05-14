@@ -6,12 +6,12 @@ import BtnSubmit from 'components/BtnSubmit';
 
 const validationSchema = yup.object().shape({
     userName: yup.string()
-        .required('First Name is required'),
+        .required('Username is required'),
     email: yup.string()
         .required('Email is required')
         .email('Email is invalid'),
     password: yup.string()
-        .min(8, 'Password must be at least 8 characters')
+        .min(5, 'Password must be at least 5 characters')
         .required('Password is required'),
     confirmPassword: yup.string()
         .oneOf([yup.ref('password'), null], 'Confirm Password must match')

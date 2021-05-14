@@ -31,6 +31,7 @@ export default function Login() {
 
     const onSubmit = (value) => {
         console.log('🚀 ~ file: index.js ~ line 47 ~ onSubmit ~ value', value);
+        
         dispatch(login(value));
     }
 
