@@ -1,16 +1,23 @@
-import { BrowserRouter, Route } from 'react-router-dom';
-
+import React, { Suspense } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { routes } from 'routes';
+import Loading from 'components/Loading';
 
 function App() {
   return (
-    <BrowserRouter>
-      <input type="checkbox" name="" id="theme" />
-      <div className="App">
-        <div className="main">
-          <h1>Social Network Client</h1>
-        </div>
-      </div>
-    </BrowserRouter>
+    <div className="my__app">
+      <Suspense fallback={Loading()}>
+        <BrowserRouter>
+          <Switch>
+            {routes.map(({ component: Component, path, ...rest }, index) => {
+              return (
+                <Route component={Component} path={path} key={index} {...rest} />
+              );
+            })}
+          </Switch>
+        </BrowserRouter>
+      </Suspense>
+    </div>
   );
 }
 

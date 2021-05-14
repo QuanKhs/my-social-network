@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const swaggerUI = require('swagger-ui-express');
 
 
 const app = express();
@@ -12,8 +13,6 @@ app.use(cookieParser());
 
 // Routes
 app.use('/api', require('./routes/authRouter'));
-
-
 
 
 //connect MongoDB atlas

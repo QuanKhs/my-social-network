@@ -1,6 +1,8 @@
 const Users = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { createAccessToken, createRefreshToken } = require('../utils/createToken');
+
 
 const authController = {
     register: async (req, res) => {
@@ -133,12 +135,6 @@ const authController = {
     }
 }
 
-const createAccessToken = (payload) => {
-    return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d' });
-}
 
-const createRefreshToken = (payload) => {
-    return jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '5d' });
-}
 
 module.exports = authController;
