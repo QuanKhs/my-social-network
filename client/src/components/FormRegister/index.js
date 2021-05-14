@@ -5,25 +5,40 @@ import InputField from 'components/InputField';
 import BtnSubmit from 'components/BtnSubmit';
 
 const validationSchema = yup.object().shape({
+    userName: yup.string()
+        .required('First Name is required'),
     email: yup.string()
         .required('Email is required')
         .email('Email is invalid'),
     password: yup.string()
         .min(8, 'Password must be at least 8 characters')
         .required('Password is required'),
+    confirmPassword: yup.string()
+        .oneOf([yup.ref('password'), null], 'Confirm Password must match')
+        .required('Confirm Password is required'),
 });
 
-export default function FormLogin(props) {
+export default function FormRegister(props) {
     const { className, title, onSubmit } = props;
-
     return (
         <>
-            <Form onSubmit={onSubmit} validationSchema={validationSchema} className={className}>
+            <Form
+                onSubmit={onSubmit}
+                validationSchema={validationSchema}
+                className={className}
+            >
                 <h2 className="title">{title}</h2>
+                <InputField
+                    name="userName"
+                    type="text"
+                    icon="fas fa-user"
+                    placeholder="Username"
+
+                />
                 <InputField
                     name="email"
                     type="text"
-                    icon="fas fa-user"
+                    icon="fas fa-envelope"
                     placeholder="Email"
 
                 />
@@ -33,9 +48,15 @@ export default function FormLogin(props) {
                     icon="fas fa-lock"
                     placeholder="Password"
                 />
+                <InputField
+                    name="confirmPassword"
+                    type="password"
+                    icon="fas fa-lock"
+                    placeholder="Password"
+                />
 
-                <BtnSubmit name="Login" />
+                <BtnSubmit name="Signup" />
             </Form>
         </>
-    );
+    )
 }

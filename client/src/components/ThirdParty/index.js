@@ -4,7 +4,7 @@ import './ThirdParty.scss';
 export default function ThirdParty() {
     return (
         <>
-            <p className="social-text">Or Login with social platforms</p>
+            <p className="social-text text-center mb-2">Or Login with social platforms</p>
             <div className="social-media">
                 <a href="google.com" className="social-icon">
                     <i className="fab fa-facebook-f"></i>

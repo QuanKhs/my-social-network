@@ -13,6 +13,11 @@
     top: 0;
     left: 0;
 
+    .title {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
     .signin-signup {
       position: absolute;
       top: 50%;
@@ -24,11 +29,6 @@
       grid-template-columns: 1fr;
       z-index: 5;
 
-      .title {
-        font-size: 2.2rem;
-        margin-bottom: 10px;
-        color: #ffffff;
-      }
       form {
         display: flex;
         align-items: center;
@@ -49,58 +49,6 @@
       form.sign-in-form {
         z-index: 2;
       }
-
-      .input-field {
-        max-width: 380px;
-        width: 100%;
-        background-color: #f0f0f0;
-        margin: 10px 0;
-        height: 55px;
-        border-radius: 55px;
-        display: grid;
-        grid-template-columns: 15% 85%;
-        padding: 0 0.4rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .input-field i {
-        text-align: center;
-        line-height: 55px;
-        color: #acacac;
-        transition: 0.5s;
-        font-size: 1.1rem;
-      }
-
-      .input-field input {
-        background: none;
-        outline: none;
-        border: none;
-        line-height: 1;
-        font-weight: 600;
-        font-size: 1.1rem;
-        color: #333;
-      }
-
-      .input-field input::placeholder {
-        color: #aaa;
-        font-weight: 500;
-      }
-
-      .errors {
-        max-width: 380px;
-        width: 100%;
-        font-weight: 600;
-        color: rgb(172, 36, 36);
-        margin-bottom: 0;
-        padding-left: 1rem;
-        &::before {
-          display: inline;
-          content: "⚠ ";
-        }
-      }
-
-      
     }
   }
 
