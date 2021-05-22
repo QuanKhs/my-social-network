@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { createAccessToken, createRefreshToken } = require('../utils/createToken');
 
-
 const authController = {
     register: async (req, res) => {
         try {
