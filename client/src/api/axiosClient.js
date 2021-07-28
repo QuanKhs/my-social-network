@@ -3,7 +3,6 @@ import axios from 'axios';
 import queryString from 'query-string';
 import { BASE_URL } from 'constants/baseUrl'
 
-
 const axiosClient = axios.create({
     baseURL: BASE_URL,
     headers: {

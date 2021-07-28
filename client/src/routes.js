@@ -1,9 +1,9 @@
 import NotFound from 'components/NotFound';
 import { lazy } from 'react';
 
-const Home = lazy(() => import('pages/Home'));
-const Login = lazy(() => import('pages/Login'));
-const Register = lazy(() => import('pages/Register'));
+const Home = lazy(() => import('pages/Home/Home'));
+const Login = lazy(() => import('pages/Login/Login'));
+const Register = lazy(() => import('pages/Register/Register'));
 
 export const routes = [
     {

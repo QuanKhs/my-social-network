@@ -55,7 +55,7 @@ export default function FormRegister(props) {
                     placeholder="Password"
                 />
 
-                <BtnSubmit name="Signup" />
+                <BtnSubmit name="Sign up" />
             </Form>
         </>
     )

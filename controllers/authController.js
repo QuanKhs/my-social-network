@@ -77,7 +77,7 @@ const authController = {
             //set cookie
             res.cookie('refreshToken', refreshToken, {
                 httpOnly: true,
-                path: '/api/refresh_token',
+                path: '/api/refresh-token',
                 maxAge: 432000000,
                 //5 days
             });
@@ -98,7 +98,7 @@ const authController = {
     },
     logout: async (req, res) => {
         try {
-            res.clearCookie('refreshToken', { path: '/api/refresh_token' });
+            res.clearCookie('refreshToken', { path: '/api/refresh-token' });
             return res.json({ msg: 'Logged out successfully!' });
 
         } catch (err) {
@@ -108,6 +108,7 @@ const authController = {
     generateAccessToken: async (req, res) => {
         try {
             const refreshToken = req.cookies.refreshToken;
+            // console.log('🚀 ~ file: authController.js ~ line 111 ~ generateAccessToken: ~ req', req.cookies);
             if (!refreshToken)
                 return res.status(400).json({ msg: 'Please Login!' });
 

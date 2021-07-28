@@ -1,12 +1,11 @@
-import { TYPES } from 'redux/actions/authAction';
+import { AUTH, ALERT } from 'constants/actionTypes';
 
 const initialState = {};
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case TYPES.AUTH:
+        case AUTH:
             return action.payload;
-
         default:
             return state;
     }
