@@ -2,7 +2,7 @@ import React, { Suspense, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { routes } from 'routes';
 import Loading from 'components/Loading';
-import Notify from 'components/Notify';
+import Alert from 'components/Alert';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { refreshToken } from 'redux/actions/authAction';
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="my__app">
-      <Notify />
+      <Alert />
       <Suspense fallback={Loading()}>
         <BrowserRouter>
           <Switch>

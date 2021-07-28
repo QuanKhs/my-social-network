@@ -1,16 +1,13 @@
-// api/axiosClient.js
 import axios from 'axios';
 import queryString from 'query-string';
 import { BASE_URL } from 'constants/baseUrl'
 
 const axiosClient = axios.create({
     baseURL: BASE_URL,
-    headers: {
-        'content-type': 'application/json',
-    },
+    withCredentials: true,
+    headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
     paramsSerializer: params => queryString.stringify(params),
 });
-
 
 axiosClient.interceptors.request.use(async (config) => {
     // Handle token here ...

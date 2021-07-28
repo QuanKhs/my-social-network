@@ -6,17 +6,17 @@ import { ToastContainer, toast } from 'react-toastify';
 const handleToast = (type, msg) => {
     toast(msg, { type: type });
 }
-export default function Notify() {
-    const { notify } = useSelector(state => state);
+export default function Alert() {
+    const { alert } = useSelector(state => state);
     const dispatch = useDispatch();
 
     return (
-        <div className="notify">
-            {notify.loading && <Loading />}
+        <div className="alert">
+            {alert.loading && <Loading />}
             {
-                notify.error && handleToast(toast.TYPE.ERROR, notify.error)}
+                alert.error && handleToast(toast.TYPE.ERROR, alert.error)}
             {
-                notify.success && handleToast(toast.TYPE.SUCCESS, notify.success)
+                alert.success && handleToast(toast.TYPE.SUCCESS, alert.success)
             }
             <ToastContainer
                 position="bottom-right"

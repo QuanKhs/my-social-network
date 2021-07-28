@@ -8,7 +8,14 @@ const swaggerUI = require('swagger-ui-express');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+const corsConfig = {
+    origin: true,
+    credentials: true,
+};
+
+app.use(cors(corsConfig));
+app.options('*', cors(corsConfig));
+
 app.use(cookieParser());
 
 // Routes

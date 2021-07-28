@@ -4,16 +4,19 @@ import './Login.scss';
 import { Redirect } from 'react-router';
 
 import { login } from 'redux/actions/authAction';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import FormLogin from 'components/FormLogin';
 import ThirdParty from 'components/ThirdParty';
+import { useHistory } from 'react-router-dom';
 
 export default function Login() {
     const [changePage, setChange] = useState(false);
     const [run, setRun] = useState(false);
     const authRef = useRef(null);
 
+    const { auth } = useSelector(state => state);
     const dispatch = useDispatch();
+    const history = useHistory()
 
     useEffect(() => {
         if (!changePage) return;
@@ -22,16 +25,20 @@ export default function Login() {
         }, 1600);
     }, [changePage]);
 
+    useEffect(() => {
+        if (auth.token) {
+            history.push('/');
+        }
+    }, [auth.token, history])
+
     const changeRegisterPage = () => {
         authRef.current.classList.add("register-mode");
         setChange(true);
     }
-    // const initialState = { email: '', password: '' };
-    // const [userData, setUserData] = useState(initialState);
 
     const onSubmit = (value) => {
         console.log('🚀 ~ file: index.js ~ line 47 ~ onSubmit ~ value', value);
-        
+
         dispatch(login(value));
     }
 

@@ -108,7 +108,7 @@ const authController = {
     generateAccessToken: async (req, res) => {
         try {
             const refreshToken = req.cookies.refreshToken;
-            // console.log('🚀 ~ file: authController.js ~ line 111 ~ generateAccessToken: ~ req', req.cookies);
+            console.log('🚀 ~ file: authController.js ~ line 111 ~ generateAccessToken: ~ req', req.cookies);
             if (!refreshToken)
                 return res.status(400).json({ msg: 'Please Login!' });
 
